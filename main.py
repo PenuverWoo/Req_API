@@ -8,7 +8,7 @@ from twilio.rest import Client
 
 print(str(round(time.time())))
 
-# Request parameter
+# Request parameter test
 method = 'GET'
 url = 'saas.cleargrass.com'
 sub_url = '/v2/device/pheasant/data/fc/'
