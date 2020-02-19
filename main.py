@@ -13,11 +13,14 @@ method = 'GET'
 url = 'saas.cleargrass.com'
 sub_url = '/v2/device/pheasant/data/fc/'
 device_id = '761B5379295BA4BE6EA232E4DB029D43'
-start = str(round(time.time()-7200))
-end = str(round(time.time()))
+# start = str(round(time.time()-86400))
+# end = str(round(time.time()))
+print('')
+start = str(1572883200)
+end = str(1572991200)
 offset = '0'
-limit = '1'
-timestamp = '1568870066.1'
+limit = '50'
+timestamp = '0.111'
 token = '0bd48fd37ee444029d499a94470461fc'
 asc = 'false'
 key = 'ff3f2801c8d942b484431fcd386f5463'
@@ -55,11 +58,15 @@ _time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(ts))
 
 print(_time)
 
+
+# Sending text to phone
 def sendMessage(toPhoneNumber, Msg):
     ac_sid = 'AC503ca45a9ce0d4c1d546860e7129274f'
+
+    ac_sid_ap = 'A6461D1B394EBD0169FCD77AD777F11B'
     auth_token = 'cd2e8835cc3fbb8a6aace5e77489bcb4'
 
-    client = Client(ac_sid, auth_token)
+    client = Client(ac_sid_ap, auth_token)
 
     message = client.messages.create(
         to = '+86' + toPhoneNumber,
@@ -69,5 +76,5 @@ def sendMessage(toPhoneNumber, Msg):
 
     print(message.sid)
 
-Msg = 'Current temperature is {}, humidity is {}, time is {}!!!!'.format(_temperature, _humidity, _time)
+# Msg = 'Current temperature is {}, humidity is {}, time is {}!!!!'.format(_temperature, _humidity, _time)
 # sendMessage('17817653989', Msg)
